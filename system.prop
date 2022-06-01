@@ -1,7 +1,7 @@
 #
 # DEVICE PROPS
 #
-ro.display.series="motorola edge 20 lite"
+ro.display.series=motorola edge 20 lite
 ro.adb.secure=0
 ro.secure=0
 ro.debuggable=1
@@ -13,3 +13,7 @@ ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.options=::v2
 ro.boot.boot_devices=bootdevice,soc/11230000.mmc,11230000.mmc,soc/11270000.ufshci,11270000.ufshci
+ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_fast_start_win=1
+ro.mtk_perf_response_time=1
+Build.BRAND=MTK
