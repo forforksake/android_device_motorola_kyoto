@@ -127,7 +127,7 @@ TARGET_COPY_OUT_PRODUCT := product
 #Android Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_VBMETA_SYSTEM := system system_ext product vendor
+BOARD_AVB_VBMETA_SYSTEM := system system_ext product
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -171,6 +171,21 @@ TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_IGNORE_MISC_WIPE_DATA := true
+
+ TARGET_RECOVERY_DEVICE_MODULES += \
+    libkeymaster41 \
+    libpuresoftkeymasterdevice \
+    debuggerd
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
+    
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/debuggerd
+
 BOARD_USES_MTK_HARDWARE := true
 BUILD_BROKEN_DUP_RULES := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -189,5 +204,8 @@ TARGET_USES_LOGD := true
 
 #PBRP Specific Build Flags
 PB_DISABLE_DEFAULT_DM_VERITY := true
-PB_TORCH_PATH := "/proc/qcom_flash"
-PB_TORCH_MAX_BRIGHTNESS := 1
+PB_TORCH_PATH := "/sys/class/flashlight/mt-flash-led2"
+
+#bootctl test
+BOARD_PROVIDES_GPTUTILS := true
+TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true

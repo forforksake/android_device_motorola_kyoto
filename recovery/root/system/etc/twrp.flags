@@ -15,7 +15,6 @@
 
 # Physical partitions
 /metadata	           	ext4	   	/dev/block/platform/bootdevice/by-name/metadata	 	 	flags=backup=1;display="Metadata";wipeduringfactoryreset;formattable;wipeingui;
-/data                   f2fs        /dev/block/platform/bootdevice/by-name/userdata         flags=fileencryption=ice
 /boot	      	     	emmc     	/dev/block/platform/bootdevice/by-name/boot            	flags=backup=1;flashimg;slotselect;display="Boot"
 /cache                 	emmc     	/dev/block/platform/bootdevice/by-name/cache	       	flags=backup=1;display="Cache"
 /dtbo		       	    emmc	   	/dev/block/platform/bootdevice/by-name/dtbo			       flags=backup=1;flashimg;display="Dtbo"
