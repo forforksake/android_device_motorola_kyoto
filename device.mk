@@ -61,12 +61,6 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
 
-# F2FS
-PRODUCT_PACKAGES += \
-    sg_write_buffer \
-    f2fs_io \
-    check_f2fs
-
 # Update engine
 PRODUCT_PACKAGES += \
     checkpoint_gc \

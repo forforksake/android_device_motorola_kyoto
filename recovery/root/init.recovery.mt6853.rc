@@ -86,16 +86,6 @@ service boot-hal-1-0 /system/bin/android.hardware.boot@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
-service vendor.boot-hal-1-1 /vendor/bin/hw/android.hardware.boot@1.1-service
-    interface android.hardware.boot@1.0::IBootControl default
-    interface android.hardware.boot@1.1::IBootControl default
-    class early_hal
-    user root
-    group root
-    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
-    disabled
-    seclabel u:r:recovery:s0
-
 service wait_for_keymaster /system/bin/wait_for_keymaster
     user root
     group root system
