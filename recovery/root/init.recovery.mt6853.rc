@@ -79,13 +79,6 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     group root
     seclabel u:r:recovery:s0
 
-service boot-hal-1-0 /system/bin/android.hardware.boot@1.0-service
-    user root
-    group root
-    setenv LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
-    disabled
-    seclabel u:r:recovery:s0
-
 service wait_for_keymaster /system/bin/wait_for_keymaster
     user root
     group root system

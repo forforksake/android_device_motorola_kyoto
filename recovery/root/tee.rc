@@ -1,3 +1,67 @@
+on early-init
+    # Set the security context of /postinstall if present.
+    restorecon /postinstall
+
+    # Copy prebuilt ld.config.txt into linkerconfig directory
+    copy /system/etc/ld.config.txt /linkerconfig/ld.config.txt
+    chmod 444 /linkerconfig/ld.config.txt
+
+    start ueventd
+
+    setprop sys.usb.configfs 0
+
+on init
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+
+    symlink /proc/self/fd/0 /dev/stdin
+    symlink /proc/self/fd/1 /dev/stdout
+    symlink /proc/self/fd/2 /dev/stderr
+
+    symlink /system/bin /bin
+    symlink /system/etc /etc
+
+    mount cgroup none /acct cpuacct
+    mkdir /acct/uid
+
+    mkdir /sdcard
+    mkdir /system
+    mkdir /data
+    mkdir /cache
+    mkdir /sideload
+    mkdir /mnt/system
+    mount tmpfs tmpfs /tmp
+
+    chown root shell /tmp
+    chmod 0775 /tmp
+
+    write /proc/sys/kernel/panic_on_oops 1
+    write /proc/sys/vm/max_map_count 1000000
+
+on boot
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+on firmware_mounts_complete
+   rm /dev/.booting
+
+# Mount filesystems and start core system services.
+on late-init
+    trigger early-fs
+    trigger fs
+    trigger post-fs
+    trigger post-fs-data
+
+    # Remove a file to wake up anything waiting for firmware
+    trigger firmware_mounts_complete
+
+    trigger early-boot
+    trigger boot
+
 on init
     # Create the mountpoint for persist partition
     mkdir /mnt/vendor/persist 0771 root root
