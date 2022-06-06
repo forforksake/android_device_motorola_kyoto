@@ -1,6 +1,6 @@
 ### Moto Edge 20 Lite 5G - Recovery Tree [WIP]
 ![Moto](https://motorolauk.vtexassets.com/arquivos/motorola-edge-20-lite-lockup-ffffff.svg)
-based on KYOTO_RETAIL_RRKS31.Q3-19-97-7
+based on KYOTO_RETAIL_RRKS31.Q3-19-97-8
 
 | **Prop** | **spec** |
 | --- | --- |
