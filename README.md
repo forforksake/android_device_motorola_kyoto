@@ -23,7 +23,7 @@ lunch omni_kyoto-eng && mka pbrp
 
 #### Checklist / Confirmed working
 - [X] bootctrl 
-- [X] fastbootd (fastboot reboot fastboot from bootloader like stock) 
+- [X] fastbootd
 - [X] Device Screen Size & Margins
 - [X] touchscreen
 - [X] Backup to internal/microSD/USB-OTG
@@ -31,8 +31,8 @@ lunch omni_kyoto-eng && mka pbrp
 - [X] ADB
 - [X] Screen Off & On - Screen Locked & Unlocked
 - [X] F2FS/EXT4 Support, exFAT/NTFS where supported
-- [ ] reboot to system
-- [ ] reboot to fastboot 
+- [X] reboot to system
+- [X] reboot to fastboot
 - [X] reboot to bootloader
 - [ ] ~~reboot to recovery removed~~ (recovery must be selected at bootloader)
 - [X] power off
@@ -43,7 +43,7 @@ lunch omni_kyoto-eng && mka pbrp
 - [X] USB-OTG keyboard, mouse and disks
 - [X] USB mass storage export
 - [X] set brightness
-- [X] vibrate
+- [X] vibrate / haptics
 - [X] screenshot
 - [X] partition SD card
 - [ ] decrypt /data  **In Progress**
