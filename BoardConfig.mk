@@ -188,8 +188,8 @@ TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
 #PBRP Specific Build Flags
-PB_DISABLE_DEFAULT_DM_VERITY := true
-PB_TORCH_PATH := "/sys/class/flashlight"
+#PB_DISABLE_DEFAULT_DM_VERITY := true
+#PB_TORCH_PATH := "/sys/class/flashlight"
 
 #bootctl test
 BOARD_PROVIDES_GPTUTILS := true

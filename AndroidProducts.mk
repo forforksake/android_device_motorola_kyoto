@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_kyoto.mk
+	$(LOCAL_DIR)/twrp_kyoto.mk
 
-COMMON_LUNCH_CHOICES := omni_kyoto-eng
+COMMON_LUNCH_CHOICES := twrp_kyoto-eng

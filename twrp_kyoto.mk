@@ -27,7 +27,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Inherit some common TWRP stuff.
-$(call inherit-product, vendor/pb/config/common.mk)
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/motorola/kyoto/device.mk)
@@ -39,7 +39,7 @@ PRODUCT_COPY_FILES += device/motorola/kyoto/recovery/root/system/etc/recovery.fs
 
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := omni_kyoto
+PRODUCT_NAME := twrp_kyoto
 PRODUCT_DEVICE := kyoto
 PRODUCT_MODEL := motorola edge 20 lite
 PRODUCT_BRAND := motorola
