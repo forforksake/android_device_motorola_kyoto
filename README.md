@@ -60,4 +60,6 @@ fastboot reboot bootloader
 ```
 select **recovery mode** from bootloader screen
 
+![bootloader](https://forum.xda-developers.com/attachments/photostudio_1654961655025-png.5635431) 
+
 WIP, feel free to assist - ForForkSake - CFKod @ Xdadevelopers_
