@@ -53,10 +53,8 @@ on late-init
     trigger fs
     trigger post-fs
     trigger post-fs-data
-
     # Remove a file to wake up anything waiting for firmware
     trigger firmware_mounts_complete
-
     trigger early-boot
     trigger boot
 
@@ -67,28 +65,12 @@ on init
 on post-fs    
     chown system system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
-
     # We restorecon /mnt/vendor/persist to set SEPolicy label.
     restorecon /mnt/vendor/persist
-
     # Mount the persist partition on /mnt/vendor/persist
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
-
     # Create mcRegistry to store failure record
     mkdir /mnt/vendor/persist/mcRegistry 0771 root root
-    
-    # Override the mobicore token path and rebel it with proper contexts
-    mkdir /mnt/vendor/persist/mobicore 0770 root root
-    restorecon /mnt/vendor/persist/mobicore
-    
-    write /proc/bootprof "MOBICORE: Starting mcDriverDaemon"
-    start mobicore
-
-on post-fs-data
-    mkdir /data/vendor 0770 system system
-    # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
-    # Key Installation
-    mkdir /data/vendor/key_provisioning 0771 root root
 
     mkdir /mnt/vendor/protect_f 0700 root root
     mkdir /mnt/vendor/protect_s 0700 root root
@@ -102,6 +84,18 @@ on post-fs-data
     symlink /mnt/vendor/protect_s /vendor/protect_s
     symlink /mnt/vendor/nvcfg /vendor/nvcfg
     symlink /mnt/vendor/nvdata /vendor/nvdata
+
+    # Override the mobicore token path and rebel it with proper contexts
+    mkdir /mnt/vendor/persist/mobicore 0770 root root
+    restorecon /mnt/vendor/persist/mobicore
+    write /proc/bootprof "MOBICORE: Starting mcDriverDaemon"
+    start mobicore
+
+on post-fs-data
+    mkdir /data/vendor 0770 system system
+    # Create /data/vendor/key_provisioning dir and get proper encryption policy installed
+    # Key Installation
+    mkdir /data/vendor/key_provisioning 0771 root root
 
     install_keyring
 

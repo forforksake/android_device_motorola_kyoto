@@ -23,6 +23,9 @@ on late-fs
     start gatekeeper-1-0
     start keymaster-4-1-trustonic
     start keymaster_attestation-1-1
+    start servicemanager
+    start hwservicemanager
+	start vndservicemanager
     exec_start wait_for_keymaster
     mount_all
 
