@@ -145,6 +145,7 @@ BOARD_USES_METADATA_PARTITION := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_FBE := true
 
 # TWRP specific build flags
 TW_DEVICE_VERSION := _cfkod_xda_kyoto_
@@ -186,10 +187,6 @@ TW_INCLUDE_RESETPROP = true
 # logd
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-
-#PBRP Specific Build Flags
-#PB_DISABLE_DEFAULT_DM_VERITY := true
-#PB_TORCH_PATH := "/sys/class/flashlight"
 
 #bootctl test
 BOARD_PROVIDES_GPTUTILS := true
